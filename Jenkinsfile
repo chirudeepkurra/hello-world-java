@@ -4,22 +4,29 @@ pipeline {
         maven 'maven-3.8.8' 
         jdk 'jdk_17' 
     }
-
     stages {
-        stage('Build') {
+        stage ('Initialize') {
             steps {
-                echo 'Building..'
-               sh 'mvn compile'
+                bat '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
             }
         }
-        stage('Test') {
+
+        stage ('Build') {
             steps {
-                echo 'Testing..'
+                echo 'This is a minimal pipeline.'
             }
         }
-        stage('Deploy') {
+        stage ('Test') {
             steps {
-                echo 'Deploying....'
+                echo 'This is a minimal pipeline.'
+            }
+        }
+        stage ('Deploy') {
+            steps {
+                echo 'This is a minimal pipeline.'
             }
         }
     }
