@@ -45,7 +45,7 @@ pipeline {
                // echo "Deplot the ${SERVER_CREDENTIALS}"
                withCredentials([
                 usernamePassword(credentials:'server-credentials',usernameVariable:USER, passwordVariable:PWD)]){
-                sh "some scripts ${USER} & ${PWD}"
+                bat "some scripts ${USER} & ${PWD}"
                }
             }
         }
