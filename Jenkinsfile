@@ -6,6 +6,7 @@ pipeline {
     }
     environment{
         NEW_VERSION = '2.387.2'
+        SERVER_CREDENTIALS = credentials('server-credentials')
     }
     stages {
         stage ('Initialize') {
@@ -41,6 +42,8 @@ pipeline {
             steps {
                 echo 'This is a minimal pipeline.'
                 echo "building version ${NEW_VERSION}"
+                echo "Deplot the ${SERVER_CREDENTIALS}"
+                sh "${SERVER_CREDENTIALS}"
             }
         }
         
