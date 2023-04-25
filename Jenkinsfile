@@ -29,14 +29,18 @@ pipeline {
                 echo 'This is a minimal pipeline.'
             }
         }
+        stage('Test2'){
         post{
             always{
                 echo 'This is a minimal pipeline.'
                 }
+        }
+        }
+        stage('success'){
             success{
                 echo 'The build is success.'
             }
             }
             }
         }
-    
+
