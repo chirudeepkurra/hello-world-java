@@ -1,9 +1,11 @@
-
 pipeline {
     agent any
     tools { 
         maven 'maven-3.8.8' 
         jdk 'jdk_17' 
+    }
+    environment{
+        NEW_VERSION = '2.387.2'
     }
     stages {
         stage ('Initialize') {
@@ -38,7 +40,9 @@ pipeline {
         stage ('Deploy') {
             steps {
                 echo 'This is a minimal pipeline.'
+                echo "building version ${NEW_VERSION}"
             }
         }
-   }
+        
+    }
 }
