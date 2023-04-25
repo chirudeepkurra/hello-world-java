@@ -6,7 +6,7 @@ pipeline {
     }
     environment{
         NEW_VERSION = '2.387.2'
-        SERVER_CREDENTIALS = credentials('server-credentials')
+        //SERVER_CREDENTIALS = credentials('server-credentials')
     }
     stages {
         stage ('Initialize') {
@@ -41,10 +41,26 @@ pipeline {
         stage ('Deploy') {
             steps {
                 echo 'This is a minimal pipeline.'
-                echo "building version ${NEW_VERSION}"
-                echo "Deplot the ${SERVER_CREDENTIALS}"
+                //echo "building version ${NEW_VERSION}"
+               // echo "Deplot the ${SERVER_CREDENTIALS}"
+               withCredentials([
+                usernamePassword(credentials:'server-credentials',usernameVariable:USER, passwordVariable:PWD)]){
+                sh "some scripts ${USER} & ${PWD}"
+               }
             }
         }
         
     }
 }
+// post {
+//         always {
+//             echo 'Test run completed'
+//             cucumber buildStatus: 'UNSTABLE', failedFeaturesNumber: 999, failedScenariosNumber: 999, failedStepsNumber: 3, fileIncludePattern: '**/*.json', skippedStepsNumber: 999
+//         }
+//         success {
+//             echo 'Successfully!'
+//         }
+//         failure {
+//             echo 'Failed!'
+//         }
+// }
