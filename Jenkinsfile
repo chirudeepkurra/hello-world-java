@@ -29,16 +29,19 @@ pipeline {
                 echo 'This is a minimal pipeline.'
             }
         }
-        stage ('Info') {
-        always{
-            echo 'This is a minimal pipeline.'
-         }
-        }
-        stage ('Success'){
-        success{
-            echo 'The build is success.'
-            }
-            }
+        
 }
+    }
+    post {
+         success {
+            echo "Test run completed succesfully."
+            }
+        failure {
+            echo "Test run failed."
+            }
+        always {
+        // Let's wipe out the workspace before we finish!
+            echo "Workspace cleaned"
+            }
     }
 
