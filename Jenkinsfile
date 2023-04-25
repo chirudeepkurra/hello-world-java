@@ -29,7 +29,6 @@ pipeline {
                 echo 'This is a minimal pipeline.'
             }
         }
-    post{
         stage ('Info') {
         always{
             echo 'This is a minimal pipeline.'
@@ -42,5 +41,4 @@ pipeline {
             }
 }
     }
-}
 
