@@ -43,7 +43,6 @@ pipeline {
                 echo 'This is a minimal pipeline.'
                 echo "building version ${NEW_VERSION}"
                 echo "Deplot the ${SERVER_CREDENTIALS}"
-                sh "${SERVER_CREDENTIALS}"
             }
         }
         
