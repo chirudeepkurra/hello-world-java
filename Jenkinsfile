@@ -30,18 +30,16 @@ pipeline {
             }
         }
         
+    }
 }
-    }
     post {
-         success {
-            echo "Test run completed succesfully."
-            }
-        failure {
-            echo "Test run failed."
-            }
         always {
-        // Let's wipe out the workspace before we finish!
-            echo "Workspace cleaned"
-            }
-    }
-
+            echo 'Test run completed'
+        }
+        success {
+            echo 'Successfully!'
+        }
+        failure {
+            echo 'Failed!'
+        }
+     }
