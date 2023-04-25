@@ -29,5 +29,14 @@ pipeline {
                 echo 'This is a minimal pipeline.'
             }
         }
-    }
-}
+        post{
+            always{
+                echo 'This is a minimal pipeline.'
+                }
+            success{
+                echo 'The build is success.'
+            }
+            }
+            }
+        }
+    
