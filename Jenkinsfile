@@ -40,17 +40,5 @@ pipeline {
                 echo 'This is a minimal pipeline.'
             }
         }
-    post {
-        always {
-            echo 'Test run completed'
-        }
-        success {
-            echo 'Successfully!'
-        }
-        failure {
-            echo 'Failed!'
-        }
-        
-    }
-}
+   }
 }
