@@ -30,13 +30,17 @@ pipeline {
             }
         }
     post{
+        stage ('Info') {
         always{
             echo 'This is a minimal pipeline.'
          }
         }
+        stage ('Success'){
         success{
             echo 'The build is success.'
             }
             }
+}
+    }
 }
 
