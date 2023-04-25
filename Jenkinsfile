@@ -20,6 +20,11 @@ pipeline {
             }
         }
         stage ('Test') {
+            when{
+                Expression{
+                    env.BRANCH_NAME == 'main'
+                }
+            }
             steps {
                 echo 'This is a minimal pipeline.'
             }
@@ -32,14 +37,3 @@ pipeline {
         
     }
 }
-    post {
-        always {
-            echo 'Test run complet'
-        }
-        success {
-            echo 'Successfully!'
-        }
-        failure {
-            echo 'Failed!'
-        }
-     }
