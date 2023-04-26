@@ -6,7 +6,7 @@ pipeline {
     }
     environment{
         NEW_VERSION = '2.387.2'
-        SERVER_CREDENTIALS = credentials('server-credentials')
+        //SERVER_CREDENTIALS = credentials('server-credentials')
     }
     parameters{
         choice(name: 'VERSION', choices:['1.0.0','1.2.0','1.3.0'], description:'...')
