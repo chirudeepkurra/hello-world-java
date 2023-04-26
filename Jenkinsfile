@@ -8,6 +8,10 @@ pipeline {
         NEW_VERSION = '2.387.2'
         //SERVER_CREDENTIALS = credentials('server-credentials')
     }
+    parameters{
+        choice(name: 'VERSION', choices:['1.0.0','1.2.0','1.3.0'], descripition:'...')
+        booleanParam(name: 'excuteTests', defualfValue = true, descripition:'...')
+    }
     stages {
         stage ('Initialize') {
             steps {
@@ -31,7 +35,8 @@ pipeline {
         stage ('Test') {
             when{
                 expression{
-                    env.BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
+                    //env.BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
+                    params.excuteTests = true
                 }
             }
             steps {
@@ -41,12 +46,13 @@ pipeline {
         stage ('Deploy') {
             steps {
                 echo 'This is a minimal pipeline.'
+                echo "deploying version ${params.VERSION}"
                 //echo "building version ${NEW_VERSION}"
                // echo "Deplot the ${SERVER_CREDENTIALS}"
-               withCredentials([
-                usernamePassword(credentials:'server-credentials',usernameVariable:USER, passwordVariable:PWD)]){
-                bat "some scripts ${USER} & ${PWD}"
-               }
+            //    withCredentials([
+            //     usernamePassword(credentials:'server-credentials',usernameVariable:USER, passwordVariable:PWD)]){
+            //     bat "some scripts ${USER} & ${PWD}"
+            //    }
             }
         }
         
