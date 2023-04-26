@@ -9,8 +9,8 @@ pipeline {
         SERVER_CREDENTIALS = credentials('server-credentials')
     }
     parameters{
-        choice(name: 'VERSION', choices:['1.0.0','1.2.0','1.3.0'], descripition:'...')
-        booleanParam(name: 'excuteTests', defualfValue = true, descripition:'...')
+        choice(name: 'VERSION', choices:['1.0.0','1.2.0','1.3.0'], description:'...')
+        booleanParam(name: 'excuteTests', defualfValue = true, description:'...')
     }
     stages {
         stage ('Initialize') {
