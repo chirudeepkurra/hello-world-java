@@ -37,6 +37,6 @@
       </configuration>
     </plugin>
   </plugins>
-  <finalName>HELL-WORLD-JAVA</finalName>
+  <finalName>hello-world-java</finalName>
 </build>
 </project>

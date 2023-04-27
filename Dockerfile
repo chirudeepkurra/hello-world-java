@@ -1,4 +1,4 @@
 FROM openjdk AS jdk_17
 EXPOSE 8080
-ADD target/HELL-WORLD-JAVA.jar HELL-WORLD-JAVA.jar
-ENTRYPOINT ["java","-jar","/HELL-WORLD-JAVA.jar"]
+ADD target/hello-world-java.jar hello-world-java.jar
+ENTRYPOINT ["java","-jar","/hello-world-java.jar"]
