@@ -35,8 +35,8 @@ pipeline {
         stage ('Test') {
             when{
                 expression{
-                    //env.BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
-                    params.excuteTests = true
+                    env.BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
+                    //params.excuteTests = true
                 }
             }
             steps {
@@ -46,7 +46,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 echo 'This is a minimal pipeline.'
-                echo "deploying version ${params.VERSION}"
+                //echo "deploying version ${params.VERSION}"
                 //echo "building version ${NEW_VERSION}"
                // echo "Deplot the ${SERVER_CREDENTIALS}"
             //    withCredentials([
