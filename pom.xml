@@ -37,5 +37,6 @@
       </configuration>
     </plugin>
   </plugins>
+  <finalName>devops-cicd</finalName>
 </build>
 </project>
