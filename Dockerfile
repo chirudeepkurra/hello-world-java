@@ -1,4 +1,4 @@
 FROM openjdk AS jdk_17
 EXPOSE 8080
-ADD target/devops-cicd.jar devops-cicd.jar
-ENTRYPOINT ["java","-jar","/devops-cicd.jar"]
+ADD target/HELL-WORLD-JAVA.jar HELL-WORLD-JAVA.jar
+ENTRYPOINT ["java","-jar","/HELL-WORLD-JAVA.jar"]
