@@ -1,4 +1,4 @@
- package main.java.com.kurra; 
+ package com.kurra; 
 
 class HelloWorld {
     public static void main(String[] args) {
